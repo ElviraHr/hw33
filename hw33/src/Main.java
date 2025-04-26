@@ -34,9 +34,13 @@ public class Main {
 
     public static <T, R> List<R> transform(List<T> list, Function<T, R> function) {
         List<R> result = new ArrayList<>();
-        for (T element : list) {
-            result.add(function.apply(element));
-        }
+
+       Iterator iterator = list.iterator();
+
+       while (iterator.hasNext()){
+            T element = (T)iterator.next();
+           result.add(function.apply(element));
+       }
 
         return result;
     }
